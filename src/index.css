@@ -1,0 +1,45 @@
+@import "tailwindcss";
+
+@media (max-width: 1020px) {
+  .combo-view {
+    flex-direction: column;
+  }
+
+  .sideview {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    min-height: auto;
+    overflow-y: visible;
+    gap: 1rem;
+  }
+
+  .regions-selector,
+  .stats {
+    width: 100%;
+    /* min-height: auto; */
+    margin-right: 0;
+  }
+  .stats {
+    min-height: 20rem;
+  }
+}
+
+@media (max-width: 800px) {
+  .sideview {
+    flex-direction: column;
+    min-height: auto; /*allow natural growth*/
+    overflow-y: visible;
+    overflow-y: scroll;
+  }
+
+  .regions-selector {
+    width: 100%; /* let height adjust naturally */
+  }
+  .stats {
+    min-height: 16rem;
+  }
+  .quake-img {
+    display: none;
+  }
+}
