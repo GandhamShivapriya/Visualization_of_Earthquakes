@@ -5,7 +5,8 @@ import { useEarthquakes } from "../useEarthquakes";
 
 export default function MainView() {
   const { data, loading, error } = useEarthquakes(
-    "https://earthquake.usgs.gov/earthquakes/feed/v1.0/summary/all_day.geojson"
+    "https://earthquake.usgs.gov/earthquakes/feed/v1.0/summary/all_month.geojson"
+
   );
 
   const [selectedMagnitudes, setSelectedMagnitudes] = useState([]);
