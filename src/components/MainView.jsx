@@ -4,13 +4,16 @@ import Sidebar from "./Sidebar";
 import { useEarthquakes } from "../useEarthquakes";
 
 export default function MainView() {
-  const { data, loading, error } = useEarthquakes(
-    "https://earthquake.usgs.gov/earthquakes/feed/v1.0/summary/all_month.geojson"
 
-  );
 
   const [selectedMagnitudes, setSelectedMagnitudes] = useState([]);
   const [selectedRegions, setSelectedRegions] = useState([]);
+
+    const feedUrl =
+    selectedMagnitudes.length === 0 && selectedRegions.length === 0
+      ? "https://earthquake.usgs.gov/earthquakes/feed/v1.0/summary/all_day.geojson"
+      : "https://earthquake.usgs.gov/earthquakes/feed/v1.0/summary/all_month.geojson";
+    const { data, loading, error } = useEarthquakes(feedUrl);
 
   // Unique magnitudes
   const magnitudes = useMemo(() => {
